@@ -1,7 +1,8 @@
 # Initial random configuration of amorphous silicon with N=1000 atoms
+# The cubic box size is L=27.8 Angstrom
 # Periodic Boundary Conditions were imposed in the x,y,z direrctions
 # Raymond Atta-Fynn; Department of Physics; UT Arlington
-# I do this Fortran; I am trying out Python for fun
+# I do this in Fortran; I am trying out Python for fun
 
 import math as m
 import random
@@ -11,16 +12,14 @@ y=list()
 z=list()
 
 L = 27.8
+N = 1000
+rcut = 2.2
 
 i=1
 
 x.append(0.5*L*random.uniform(-1,1))
 y.append(0.5*L*random.uniform(-1,1))
 z.append(0.5*L*random.uniform(-1,1))
-
-N = 1000
-
-rcut = 2.2
 
 while i < N:
   x0=0.5*L*random.uniform(-1,1)
@@ -51,7 +50,7 @@ while i < N:
     y.append(y0)
     z.append(z0)
 
-
+# Print output file
 outfile = open("aSi_1000.xyz","w")
 print("{0:6d}".format(N),file=outfile)
 print("{0:12.6f}".format(L),file=outfile)
